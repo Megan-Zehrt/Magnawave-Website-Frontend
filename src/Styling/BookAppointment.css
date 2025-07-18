@@ -1,0 +1,180 @@
+/* BookAppointmentList.css */
+.book-appointment-list-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  font-family: 'Arial', sans-serif;
+  color: #ffffff;
+}
+
+.book-appointment-list-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ff1493;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.no-appointments {
+  text-align: center;
+  padding: 3rem 2rem;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  border: 1px solid #333333;
+}
+
+.no-appointments p {
+  font-size: 1.2rem;
+  color: #cccccc;
+  margin: 0;
+}
+
+.appointments-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.appointment-item {
+  background-color: #2a2a2a;
+  border: 2px solid #333333;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.appointment-item:hover {
+  border-color: #ff1493;
+  background-color: #333333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 20, 147, 0.2);
+}
+
+.appointment-info {
+  flex: 1;
+}
+
+.appointment-type {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ff1493;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.appointment-details {
+  font-size: 1rem;
+  color: #cccccc;
+  margin-bottom: 0.5rem;
+}
+
+.appointment-price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.book-button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.book-button:hover {
+  background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+}
+
+.book-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(255, 20, 147, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .book-appointment-list-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .book-appointment-list-container h2 {
+    font-size: 1.5rem;
+  }
+  
+  .appointment-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .appointment-info {
+    width: 100%;
+  }
+  
+  .book-button {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .no-appointments {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .appointments-list {
+    gap: 0.5rem;
+  }
+  
+  .appointment-item {
+    padding: 1rem;
+  }
+  
+  .appointment-type {
+    font-size: 1rem;
+  }
+  
+  .appointment-details {
+    font-size: 0.9rem;
+  }
+  
+  .appointment-price {
+    font-size: 1rem;
+  }
+}
+
+/* Focus indicators for accessibility */
+.book-appointment-list-container *:focus-visible {
+  outline: 2px solid #ff1493;
+  outline-offset: 2px;
+}
+
+/* Loading state (if you want to add it) */
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #cccccc;
+  font-size: 1.1rem;
+}

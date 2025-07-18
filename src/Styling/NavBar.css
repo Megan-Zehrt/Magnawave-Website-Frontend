@@ -1,0 +1,51 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #121212;
+  color: white;
+  padding: 12px 24px;
+  height: 70px;
+}
+
+/* Left: Logo + Brand Name */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.navbar-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 15%;
+}
+.brand-name {
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+}
+
+/* Center: Nav Links */
+.navbar-center {
+  display: flex;
+  gap: 100px;
+}
+.navbar-center a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+.navbar-center a:hover {
+  color: #ff007f;
+}
+
+/* Right: Profile */
+.navbar-right a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  margin-right: 20px;
+}
+.navbar-right a:hover {
+  color: #ff007f;
+}
