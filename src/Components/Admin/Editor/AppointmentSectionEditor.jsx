@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../../Styling/AppointmentSectionEditor.css';
 
-const AppointmentSectionEditor = ({ data, onChange }) => {
+const AppointmentSectionEditor = ({ data = {}, onChange }) => {
   // data = { appointmentSectionTitle, appointmentSectionSubtext }
 
   return (

@@ -2,7 +2,7 @@ import React from 'react';
 import ImageUpload from '../../ImageUpload'; // adjust path as needed
 import '../../../Styling/AboutSectionEditor.css';
 
-const AboutSectionEditor = ({ data, onChange }) => {
+const AboutSectionEditor = ({ data = {}, onChange }) => {
   return (
     <div className="about-section-editor">
       <h2>About Section</h2>

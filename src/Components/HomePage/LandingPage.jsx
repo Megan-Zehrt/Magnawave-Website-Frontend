@@ -38,6 +38,7 @@ useEffect(() => {
     landingSection,
     aboutSection,
     appointmentSection,
+    serviceSection,
   } = websiteContent;
 
   return (
@@ -71,24 +72,38 @@ useEffect(() => {
 
         <div className="services-grid">
           <div className="service-card">
-            <h3>MagnaWave Therapy</h3>
-            <p>
-              Pulsed Electromagnetic Field (PEMF) therapy that helps reduce inflammation, improve circulation, and speed up recovery.
-            </p>
+            <div className="service-image">
+              <img src={serviceSection?.magnaWavePEMFUrl} alt="MagnaWave PEMF Therapy" />
+            </div>
+            <div className="service-content">
+              <h3>{serviceSection?.magnaWavePEMFTitle}</h3>
+            </div>
           </div>
+          
           <div className="service-card">
-            <h3>Red Light Therapy</h3>
-            <p>
-              A non-invasive treatment that uses low-wavelength red light to stimulate healing at the cellular level.
-            </p>
+            <div className="service-image">
+              <img src={serviceSection?.redLightUrl} alt="Red Light Therapy" />
+            </div>
+            <div className="service-content">
+              <h3>{serviceSection?.redLightTitle}</h3>
+            </div>
           </div>
+          
           <div className="service-card">
-            <h3>Equine Massage</h3>
-            <p>
-              Therapeutic massage techniques that relieve tension and improve range of motion.
-            </p>
+            <div className="service-image">
+              <img src={serviceSection?.massageUrl} alt="Equine Massage Therapy" />
+            </div>
+            <div className="service-content">
+              <h3>{serviceSection?.massageTitle}</h3>
+            </div>
           </div>
         </div>
+      </div>
+
+      <div className="appointment-cta-section">
+        <h2>Book An Appointment Now</h2>
+        <p>Ready to give your horse the care they deserve? Schedule your session today.</p>
+        <button className="cta-button">Schedule Now</button>
       </div>
 
       {/* Testimonials / Feedback Section */}
@@ -107,13 +122,13 @@ useEffect(() => {
           </div>
           <div className="testimonial-card">
             <p className="testimonial-text">
-              "Red light sessions helped speed up my gelding’s tendon recovery."
+              "Red light sessions helped speed up my gelding's tendon recovery."
             </p>
             <h4 className="testimonial-author">– John D., Eventing Rider</h4>
           </div>
           <div className="testimonial-card">
             <p className="testimonial-text">
-              "They are always punctual and truly care about the horse’s long-term health."
+              "They are always punctual and truly care about the horse's long-term health."
             </p>
             <h4 className="testimonial-author">– Emily T., Trainer</h4>
           </div>

@@ -1,0 +1,94 @@
+/* AboutSectionEditor.css */
+.about-section-editor {
+  background-color: #2a2a2a;
+  border: 2px solid #333333;
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.about-section-editor:hover {
+  border-color: #ff1493;
+  box-shadow: 0 4px 20px rgba(255, 20, 147, 0.1);
+}
+
+.about-section-editor h2 {
+  color: #ff1493;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.about-section-editor h2::before {
+  content: '';
+  width: 4px;
+  height: 1.5rem;
+  background: linear-gradient(135deg, #ff1493, #ff69b4);
+  border-radius: 2px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.01em;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #1a1a1a;
+  border: 2px solid #444444;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #1a1a1a;
+  border: 2px solid #444444;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #ff1493;
+  box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.1);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #888888;
+}
+
+@media (max-width: 768px) {
+  .about-section-editor {
+    padding: 1.5rem;
+  }
+  
+  .about-section-editor h2 {
+    font-size: 1.5rem;
+  }
+}

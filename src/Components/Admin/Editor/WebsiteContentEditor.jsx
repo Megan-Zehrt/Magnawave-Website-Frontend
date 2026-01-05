@@ -4,6 +4,7 @@ import LandingSectionEditor from './LandingSectionEditor';
 import AboutSectionEditor from './AboutSectionEditor';
 import AppointmentSectionEditor from './AppointmentSectionEditor';
 import ColorSchemeEditor from './ColorSchemeEditor';
+import ServicesEditor from './ServicesEditor';
 import '../../../Styling/WebsiteContentEditor.css';
 
 const WebsiteContentEditor = () => {
@@ -12,6 +13,7 @@ const WebsiteContentEditor = () => {
     aboutSection: {},
     appointmentSection: {},
     colorScheme: {},
+    serviceSection: {},
   });
   const [loading, setLoading] = useState(true);
 
@@ -39,7 +41,7 @@ const WebsiteContentEditor = () => {
 
   const handleSave = () => {
     axios.put('http://localhost:8000/api/website-content', content)  // adjust your API route
-      .then(() => alert('Website content saved!'))
+      .then(() => alert('Website content saved!'), console.log(content))
       .catch((err) => alert('Failed to save content:', err));
   };
 
@@ -66,6 +68,10 @@ const WebsiteContentEditor = () => {
         <AppointmentSectionEditor
           data={content.appointmentSection}
           onChange={(field, value) => handleSectionChange('appointmentSection', field, value)}
+        />
+        <ServicesEditor
+          data={content.serviceSection}
+          onChange={(field, value) => handleSectionChange('serviceSection', field, value)}
         />
         <ColorSchemeEditor
           data={content.colorScheme}

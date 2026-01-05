@@ -41,14 +41,14 @@ useEffect(() => {
       <div className="navbar-center">
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
-        <Link to="/packages">Services</Link>
+        <Link to="/Equine-Edge-Sports-Therapy/services">Services</Link>
         <Link to="/packages">Packages</Link>
         <Link to="/Equine-Edge-Sports-Therapy/available-appointments">Book Appointment</Link>
       </div>
 
       {/* RIGHT: Profile */}
       <div className="navbar-right">
-        <Link to="/profile">My Profile</Link>
+        <Link to="/Equine-Edge-Sports-Therapy/profile">My Profile</Link>
       </div>
     </div>
   );

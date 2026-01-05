@@ -63,7 +63,7 @@ body {
 /* Services Section */
 .services-section {
   background-color: var(--background-color, #0a0a0a);
-  padding: 80px 20px;
+  padding: 80px 0;
   text-align: center;
 }
 
@@ -78,48 +78,145 @@ body {
 
 .services-subtext {
   font-size: 1.2rem;
-  color: var(--secondary-text-color, #b0b0b0);
+  color: var(--accent-color, #b0b0b0);
   margin-bottom: 50px;
   font-weight: 400;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .services-grid {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  padding: 0 40px;
 }
 
 .service-card {
   background-color: var(--secondary-color, #1a1a1a);
-  padding: 40px 30px;
-  border-radius: 8px;
+  border-radius: 12px;
   border: 2px solid var(--border-color, #333);
-  transition: all 0.3s ease;
-  text-align: left;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
 }
 
 .service-card:hover {
   border-color: var(--primary-color, #ff1493);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(255, 20, 147, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(255, 20, 147, 0.3);
 }
 
-.service-card h3 {
-  font-size: 1.5rem;
+.service-image {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-image img {
+  transform: scale(1.1);
+}
+
+.service-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover .service-image::after {
+  background: linear-gradient(180deg, rgba(255, 20, 147, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.service-content {
+  padding: 20px 25px;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-color, #1a1a1a);
+}
+
+.service-content h3 {
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--primary-color, #ff1493);
-  margin-bottom: 15px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+  margin: 0;
+  line-height: 1.2;
 }
 
-.service-card p {
-  font-size: 1rem;
-  color: var(--accent-color, #e0e0e0);
-  font-weight: 400;
-  line-height: 1.7;
+.service-card:hover .service-content h3 {
+  color: #ff3db0;
+}
+
+/* Appointment CTA Section */
+.appointment-cta-section {
+  background: linear-gradient(135deg, var(--primary-color, #ff1493) 0%, #ff3db0 100%);
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+}
+
+.appointment-cta-section h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.appointment-cta-section p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.cta-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.cta-button:hover {
+  background-color: white;
+  color: var(--primary-color, #ff1493);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 /* Testimonials Section */
@@ -140,7 +237,7 @@ body {
 
 .testimonials-subtext {
   font-size: 1.2rem;
-  color: var(--secondary-text-color, #b0b0b0);
+  color: var(--accent-color, #b0b0b0);
   margin-bottom: 50px;
   font-weight: 400;
 }
@@ -197,6 +294,22 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .services-grid {
+    max-width: 900px;
+    gap: 40px;
+    padding: 0 30px;
+  }
+  
+  .service-card {
+    height: 350px;
+  }
+  
+  .service-image {
+    height: 270px;
+  }
+}
+
 @media (max-width: 768px) {
   .about-content {
     grid-template-columns: 1fr;
@@ -210,7 +323,13 @@ body {
     font-size: 2rem;
   }
   
-  .services-grid,
+  .services-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    gap: 30px;
+    padding: 0 20px;
+  }
+  
   .testimonials-grid {
     grid-template-columns: 1fr;
   }
@@ -223,6 +342,26 @@ body {
   .services-section,
   .testimonials-section {
     padding: 60px 20px;
+  }
+  
+  .service-card {
+    height: 280px;
+  }
+  
+  .service-image {
+    height: 200px;
+  }
+  
+  .service-content {
+    padding: 15px 20px;
+  }
+  
+  .service-content h3 {
+    font-size: 1.1rem;
+  }
+  
+  .appointment-cta-section h2 {
+    font-size: 1.8rem;
   }
 }
 
@@ -238,9 +377,47 @@ body {
     padding: 30px 20px;
   }
   
+  .service-card {
+    height: 260px;
+  }
+  
+  .service-content {
+    padding: 15px 20px;
+  }
+  
+  .service-content h3 {
+    font-size: 1rem;
+  }
+  
+  .service-image {
+    height: 180px;
+  }
+  
   .about-section,
   .services-section,
   .testimonials-section {
     padding: 40px 15px;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .service-image {
+    height: 180px;
+  }
+  
+  .appointment-cta-section {
+    padding: 40px 15px;
+  }
+  
+  .appointment-cta-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 1rem;
   }
 }

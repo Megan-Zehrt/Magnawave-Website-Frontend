@@ -36,7 +36,7 @@ const Footer = () => {
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/Equine-Edge-Sports-Therapy/available-appointments">Book Appointment</a></li>
-                        <li><a href="/services">Services</a></li>
+                        <li><a href="/Equine-Edge-Sports-Therapy/services">Services</a></li>
                         <li><a href="/testimonials">Testimonials</a></li>
                     </ul>
                 </div>

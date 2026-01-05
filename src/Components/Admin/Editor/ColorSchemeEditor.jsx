@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../../Styling/ColorSchemeEditor.css';
 
-const ColorSchemeEditor = ({ data, onChange }) => {
+const ColorSchemeEditor = ({ data = {}, onChange }) => {
   // data = { backgroundColorHex, textColorHex, primaryColorHex, secondaryColorHex, accentColorHex }
 
   const colorFields = [

@@ -13,6 +13,7 @@ import WebsiteContentEditor from './Components/Admin/Editor/WebsiteContentEditor
 import BookAppointment from './Components/Appointments/BookAppointment';
 import AppointmentForm from './Components/Appointments/AppointmentForm';
 import CreateAppointment from './Components/Appointments/CreateAppointment';
+import Services from './Components/Services/Services';
 
 function App() {
   return (
@@ -38,6 +39,10 @@ function App() {
         <Route path="/Equine-Edge-Sports-Therapy/book-appointment" element={ <AppointmentForm /> } />
         <Route path="/Equine-Edge-Sports-Therapy/available-appointments" element={ <BookAppointment /> } />
         <Route path="/Equine-Edge-Sports-Therapy/create-available-appointments" element={ <CreateAppointment /> } />
+        <Route path="/Equine-Edge-Sports-Therapy/services" element={ <Services /> } />
+
+        {/* ADMIN PROFLE & INFORMATION */}
+        <Route path="/Equine-Edge-Sports-Therapy/profile" element={ <AdminPanel/>} />
       </Routes>
 
       <Footer />

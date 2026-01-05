@@ -2,7 +2,7 @@ import React from 'react';
 import ImageUpload from '../../ImageUpload'; // adjust path if needed
 import '../../../Styling/LandingSectionEditor.css';
 
-const LandingSectionEditor = ({ data, onChange }) => {
+const LandingSectionEditor = ({ data = {}, onChange }) => {
   return (
     <div className="landing-section-editor">
       <h2>Landing Section</h2>
