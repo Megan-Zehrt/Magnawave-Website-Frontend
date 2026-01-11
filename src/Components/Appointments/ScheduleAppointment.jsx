@@ -1,38 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import '../../Styling/CreateAppointment.css';
 
+const SERVICE_TYPE_MAP = {
+  magnawave: 'MagnaWave PEMF',
+  redlight: 'Red Light Therapy',
+  massage: 'Therapeutic Massage',
+};
+
 const CreateAppointment = () => {
+  const { serviceType } = useParams();
+
   const [appointmentType, setAppointmentType] = useState('');
   const [description, setDescription] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
-  const [originalCost, setOriginalCost] = useState('');;
+  const [originalCost, setOriginalCost] = useState('');
   const [location, setLocation] = useState('');
   const [notes, setNotes] = useState('');
-
   const [loading, setLoading] = useState(false);
   const [successMsg, setSuccessMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
+  /** ✅ SET SERVICE TYPE FROM ROUTE */
+  useEffect(() => {
+    const resolvedType = SERVICE_TYPE_MAP[serviceType];
+    if (resolvedType) {
+      setAppointmentType(resolvedType);
+    }
+  }, [serviceType]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Clear previous messages
+    setLoading(true);
     setSuccessMsg('');
     setErrorMsg('');
-    setLoading(true);
 
     try {
-      // Prepare the appointment data object
       const newAppointment = {
-        adminId: '687937d1e03c5fd61d38e937',  // Replace with actual adminId from auth or context
+        adminId: '687937d1e03c5fd61d38e937',
         appointmentType,
         description,
         date: new Date(date),
         time,
         originalCost: parseFloat(originalCost),
-        discountedCost: parseFloat(originalCost),  // Start with no discount
+        discountedCost: parseFloat(originalCost),
         isPaid: false,
         isBooked: false,
         location,
@@ -41,21 +54,21 @@ const CreateAppointment = () => {
         updatedAt: new Date(),
       };
 
-      // POST to backend
-      await axios.post('http://localhost:8000/api/appointments/create', newAppointment);
+      await axios.post(
+        'http://localhost:8000/api/appointments/create',
+        newAppointment
+      );
 
       setSuccessMsg('Appointment created successfully!');
-      // Reset form
-      setAppointmentType('');
       setDescription('');
       setDate('');
       setTime('');
       setOriginalCost('');
       setLocation('');
       setNotes('');
-    } catch (error) {
-      console.error(error);
-      setErrorMsg('Failed to create appointment. Please try again.');
+    } catch (err) {
+      console.error(err);
+      setErrorMsg('Failed to create appointment.');
     }
 
     setLoading(false);
@@ -71,70 +84,65 @@ const CreateAppointment = () => {
       <form onSubmit={handleSubmit}>
         <label>
           Appointment Type:
-          <input 
-            type="text" 
-            value={appointmentType} 
-            onChange={(e) => setAppointmentType(e.target.value)} 
-            required 
-          />
+          <input type="text" value={appointmentType} readOnly />
         </label>
 
         <label>
           Description:
-          <textarea 
-            value={description} 
-            onChange={(e) => setDescription(e.target.value)} 
-            required 
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
           />
         </label>
 
         <label>
           Date:
-          <input 
-            type="date" 
-            value={date} 
-            onChange={(e) => setDate(e.target.value)} 
-            required 
+          <input
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            required
           />
         </label>
 
         <label>
           Time:
-          <input 
-            type="time" 
-            value={time} 
-            onChange={(e) => setTime(e.target.value)} 
-            required 
+          <input
+            type="time"
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
+            required
           />
         </label>
 
         <label>
           Original Cost ($):
-          <input 
-            type="number" 
-            min="0" 
-            step="0.01" 
-            value={originalCost} 
-            onChange={(e) => setOriginalCost(e.target.value)} 
-            required 
+          <input
+            type="number"
+            min="0"
+            step="0.01"
+            value={originalCost}
+            onChange={(e) => setOriginalCost(e.target.value)}
+            required
           />
         </label>
 
         <label>
           Location:
-          <input 
-            type="text" 
-            value={location} 
-            onChange={(e) => setLocation(e.target.value)} 
-            required 
+          <input
+            type="text"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            required
           />
         </label>
 
         <label>
           Notes (optional):
-          <textarea 
-            value={notes} 
-            onChange={(e) => setNotes(e.target.value)} 
+          <textarea
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
           />
         </label>
 

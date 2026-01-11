@@ -3,49 +3,79 @@
   justify-content: space-between;
   align-items: center;
   background-color: #121212;
-  color: white;
-  padding: 12px 24px;
-  height: 70px;
+  color: #ff1493;
+  padding: 10px 20px;
+  position: fixed; /* Stay on top of content */
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
-/* Left: Logo + Brand Name */
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
+
 .navbar-logo {
-  width: 40px;
   height: 40px;
-  border-radius: 15%;
+  width: 40px;
+  object-fit: contain;
 }
+
 .brand-name {
   font-weight: bold;
-  font-size: 18px;
-  color: white;
+  font-size: 1.2rem;
+  color: #ff1493;
+  cursor: pointer;
 }
 
-/* Center: Nav Links */
-.navbar-center {
-  display: flex;
-  gap: 100px;
-}
-.navbar-center a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-}
-.navbar-center a:hover {
-  color: #ff007f;
+.navbar-right {
+  position: relative;
 }
 
-/* Right: Profile */
-.navbar-right a {
-  color: white;
+.profile-button {
+  background: none;
+  border: none;
+  color: #ff1493;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.profile-button:hover {
+  color: #ff3db0;
+}
+
+.profile-menu-container {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Right below the button */
+  right: 0;
+  background-color: #1e1e1e;
+  border: 1px solid #ff1493;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 5px;
+  min-width: 160px;
+  box-shadow: 0 4px 20px rgba(255, 20, 147, 0.4);
+  z-index: 10;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 15px;
+  color: #ff1493;
   text-decoration: none;
   font-weight: 500;
-  margin-right: 20px;
+  transition: background 0.2s, color 0.2s;
 }
-.navbar-right a:hover {
-  color: #ff007f;
+
+.dropdown-item:hover {
+  background-color: #ff1493;
+  color: #121212;
 }

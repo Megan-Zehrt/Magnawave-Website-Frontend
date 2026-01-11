@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../Styling/LandingPage.css';
 
 const LandingPage = () => {
   const [websiteContent, setWebsiteContent] = useState(null);
+  const navigate = useNavigate();
 
-useEffect(() => {
-  console.log("Fetching website content...");
-  axios.get('http://localhost:8000/api/website-content')
-    .then(res => {
-      console.log("Website content received:", res.data);
-      setWebsiteContent(res.data);
-    })
-    .catch(err => {
-      console.error('Failed to fetch website content:', err);
-    });
-}, []);
+  useEffect(() => {
+    console.log("Fetching website content...");
+    axios.get('http://localhost:8000/api/website-content')
+      .then(res => {
+        console.log("Website content received:", res.data);
+        setWebsiteContent(res.data);
+      })
+      .catch(err => {
+        console.error('Failed to fetch website content:', err);
+      });
+  }, []);
 
   useEffect(() => {
     if (websiteContent?.colorScheme) {
@@ -40,6 +42,10 @@ useEffect(() => {
     appointmentSection,
     serviceSection,
   } = websiteContent;
+
+  const ScheduleNowBtn = () => {
+    navigate("/Equine-Edge-Sports-Therapy/schedule/service")
+  }
 
   return (
     <div>
@@ -71,39 +77,35 @@ useEffect(() => {
         </p>
 
         <div className="services-grid">
-          <div className="service-card">
-            <div className="service-image">
-              <img src={serviceSection?.magnaWavePEMFUrl} alt="MagnaWave PEMF Therapy" />
+          <Link to="/Equine-Edge-Sports-Therapy/service/magnawave" className="service-card">
+            <div className="service-image-container">
+              <img src={serviceSection?.magnaWavePEMFUrl} alt={serviceSection?.magnaWavePEMFTitle} className="service-image" />
+              <h3 className="service-title">{serviceSection?.magnaWavePEMFTitle}</h3>
             </div>
-            <div className="service-content">
-              <h3>{serviceSection?.magnaWavePEMFTitle}</h3>
+          </Link>
+
+          <Link to="/Equine-Edge-Sports-Therapy/service/redlight" className="service-card">
+            <div className="service-image-container">
+              <img src={serviceSection?.redLightUrl} alt={serviceSection?.redLightTitle} className="service-image" />
+              <h3 className="service-title">{serviceSection?.redLightTitle}</h3>
             </div>
-          </div>
-          
-          <div className="service-card">
-            <div className="service-image">
-              <img src={serviceSection?.redLightUrl} alt="Red Light Therapy" />
+          </Link>
+
+          <Link to="/Equine-Edge-Sports-Therapy/service/massage" className="service-card">
+            <div className="service-image-container">
+              <img src={serviceSection?.massageUrl} alt={serviceSection?.massageTitle} className="service-image" />
+              <h3 className="service-title">{serviceSection?.massageTitle}</h3>
             </div>
-            <div className="service-content">
-              <h3>{serviceSection?.redLightTitle}</h3>
-            </div>
-          </div>
-          
-          <div className="service-card">
-            <div className="service-image">
-              <img src={serviceSection?.massageUrl} alt="Equine Massage Therapy" />
-            </div>
-            <div className="service-content">
-              <h3>{serviceSection?.massageTitle}</h3>
-            </div>
-          </div>
+          </Link>
         </div>
+
+
       </div>
 
       <div className="appointment-cta-section">
         <h2>Book An Appointment Now</h2>
         <p>Ready to give your horse the care they deserve? Schedule your session today.</p>
-        <button className="cta-button">Schedule Now</button>
+        <button className="cta-button" onClick={ScheduleNowBtn}>Schedule Now</button>
       </div>
 
       {/* Testimonials / Feedback Section */}

@@ -3,52 +3,51 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../Styling/NavBar.css'; 
 
-
 const NavBar = () => {
+  const [websiteContent, setWebsiteContent] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false); // Track dropdown state
 
-    const [websiteContent, setWebsiteContent] = useState(null);
-
-useEffect(() => {
-  console.log("Fetching website content...");
-  axios.get('http://localhost:8000/api/website-content')
-    .then(res => {
-      console.log("Website content received:", res.data);
-      setWebsiteContent(res.data);
-    })
-    .catch(err => {
-      console.error('Failed to fetch website content:', err);
-    });
-}, []);
+  useEffect(() => {
+    axios.get('http://localhost:8000/api/website-content')
+      .then(res => setWebsiteContent(res.data))
+      .catch(err => console.error('Failed to fetch website content:', err));
+  }, []);
 
   if (!websiteContent) {
     return <p>Loading website content...</p>;
   }
 
-  const {
-    landingSection
-  } = websiteContent;
+  const { landingSection } = websiteContent;
+
+  const handleMenuToggle = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   return (
     <div className="navbar">
-      
       {/* LEFT: Logo + Brand Name */}
       <div className="navbar-left">
         <img src={landingSection.logoUrl} alt="Logo" className="navbar-logo" />
-        <Link to="/Equine-Edge-Sports-Therapy"><p className="brand-name">{landingSection.brandName}</p></Link>
-      </div>
-
-      {/* CENTER: Navigation Links */}
-      <div className="navbar-center">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/Equine-Edge-Sports-Therapy/services">Services</Link>
-        <Link to="/packages">Packages</Link>
-        <Link to="/Equine-Edge-Sports-Therapy/available-appointments">Book Appointment</Link>
+        <Link to="/Equine-Edge-Sports-Therapy">
+          <p className="brand-name">{landingSection.brandName}</p>
+        </Link>
       </div>
 
       {/* RIGHT: Profile */}
       <div className="navbar-right">
-        <Link to="/Equine-Edge-Sports-Therapy/profile">My Profile</Link>
+        <div className="profile-menu-container">
+          <button className="profile-button" onClick={handleMenuToggle}>
+            My Profile ▾
+          </button>
+
+          {menuOpen && (
+            <div className="dropdown-menu">
+              <Link to="/Equine-Edge-Sports-Therapy/account" className="dropdown-item">Account</Link>
+              <Link to="/Equine-Edge-Sports-Therapy/view-appointments" className="dropdown-item">Appointments</Link>
+              <Link to="/Equine-Edge-Sports-Therapy/login" className="dropdown-item">Log In / Log Out</Link>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -21,31 +21,21 @@ const Footer = () => {
     return (
         <footer className="site-footer">
             <div className="footer-container">
-                <div className="footer-section brand">
-                    <h3>Common Questions</h3>
-                    <ul>
-                        <li><a href="/">Science Behind It All</a></li>
-                        <li><a href="/appointments">Which Service is best for me?</a></li>
-                        <li><a href="/services">About Me</a></li>
-                        <li><a href="/ambassador">Join the Team</a></li>
-                    </ul>
-                </div>
 
                 <div className="footer-section links">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="/Equine-Edge-Sports-Therapy/available-appointments">Book Appointment</a></li>
-                        <li><a href="/Equine-Edge-Sports-Therapy/services">Services</a></li>
-                        <li><a href="/testimonials">Testimonials</a></li>
+                        <li><a href="/Equine-Edge-Sports-Therapy/view-appointments">View Appointments</a></li>
+                        <li><a href="/Equine-Edge-Sports-Therapy/view-appointments">Join the team</a></li>
                     </ul>
                 </div>
 
                 <div className="footer-section contact">
                     <h4>Contact</h4>
                     <p>Email: {adminInfo?.email || ''}</p>
-                    <p>Phone: {adminInfo?.phoneNumber || ''}</p>
-                    <p>Location: {adminInfo?.location || 'Weatherford, Texas, USA'}</p>
+                    <p>Phone: +1 {adminInfo?.phoneNumber || ''}</p>
+                    <p>Location: {adminInfo?.location || 'Stephenville, Texas, USA'}</p>
 
                     {adminInfo?.facebookUrl || adminInfo?.instagramUrl ? (
                         <div className="social-links">

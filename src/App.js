@@ -12,8 +12,12 @@ import AdminSignIn from './Components/Admin/Profile/AdminSignIn';
 import WebsiteContentEditor from './Components/Admin/Editor/WebsiteContentEditor';
 import BookAppointment from './Components/Appointments/BookAppointment';
 import AppointmentForm from './Components/Appointments/AppointmentForm';
-import CreateAppointment from './Components/Appointments/CreateAppointment';
-import Services from './Components/Services/Services';
+import ScheduleAppointment from './Components/Appointments/ScheduleAppointment';
+import MagnaWave from './Components/Services/Magnawave';
+import RedLight from './Components/Services/RedLight';
+import Massage from './Components/Services/Massage';
+import ViewAppointment from './Components/Appointments/ViewAppointment';
+import ScheduleNow from './Components/Appointments/ScheduleNow';
 
 function App() {
   return (
@@ -30,7 +34,7 @@ function App() {
         <Route path="/Equine-Edge-Sports-Therapy/Admin-Create-Account" element={ <AdminCreate /> } />
         <Route path="/Equine-Edge-Sports-Therapy/Admin-Editorial" element={ <WebsiteContentEditor /> } />
 
-        {/* CLIENT ROUTE */}
+        {/* USER ROUTE */}
         <Route path="/Equine-Edge-Sports-Therapy/My-Profile/:id" element={ <ProfilePage /> } />
         <Route path="/Equine-Edge-Sports-Therapy/Create-Account" element={ <CreateAccount /> } />
         <Route path="/Equine-Edge-Sports-Therapy/Sign-In" element={ <SignInAccount /> } />
@@ -38,8 +42,16 @@ function App() {
         {/* APPOINTMENT / SERVICES ROUTES */}
         <Route path="/Equine-Edge-Sports-Therapy/book-appointment" element={ <AppointmentForm /> } />
         <Route path="/Equine-Edge-Sports-Therapy/available-appointments" element={ <BookAppointment /> } />
-        <Route path="/Equine-Edge-Sports-Therapy/create-available-appointments" element={ <CreateAppointment /> } />
-        <Route path="/Equine-Edge-Sports-Therapy/services" element={ <Services /> } />
+        <Route path="/Equine-Edge-Sports-Therapy/service/magnawave" element={ <MagnaWave /> } />
+        <Route path="/Equine-Edge-Sports-Therapy/service/redlight" element={ <RedLight /> } />
+        <Route path="/Equine-Edge-Sports-Therapy/service/massage" element={ <Massage /> } />
+        <Route path="/Equine-Edge-Sports-Therapy/schedule/service" element={ <ScheduleNow /> } />
+        <Route path="/Equine-Edge-Sports-Therapy/schedule/:serviceType" element={ <ScheduleAppointment /> } />
+
+
+
+        <Route path="/Equine-Edge-Sports-Therapy/view-appointments" element={ <ViewAppointment /> } />
+
 
         {/* ADMIN PROFLE & INFORMATION */}
         <Route path="/Equine-Edge-Sports-Therapy/profile" element={ <AdminPanel/>} />

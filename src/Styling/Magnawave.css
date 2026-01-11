@@ -1,0 +1,213 @@
+/* Container */
+.magna-wave-container {
+    background-color: #121212;
+    color: #ff1493;
+    padding: 50px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    max-width: 1200px;
+    margin: 40px auto;
+    font-family: 'Arial', sans-serif;
+}
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the top */
+    margin-bottom: 30px;
+    position: relative; /* So Home button can be positioned inside */
+}
+
+/* Home button inside header */
+.home-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ff1493;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(255, 20, 147, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.home-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(255, 20, 147, 0.8);
+    background-color: #ff3db0;
+}
+
+
+
+/* Header Section */
+.header-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.left-column {
+    flex: 1 1 400px;
+}
+
+.right-column {
+    flex: 1 1 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.magna-wave-image {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(255, 20, 147, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.magna-wave-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(255, 20, 147, 0.6);
+}
+
+/* Service Title & Description */
+.service-name {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(255, 20, 147, 0.7);
+}
+
+.service-description {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #ffb0d1;
+}
+
+/* Book Now Button */
+.book-now-button {
+    background: linear-gradient(135deg, #ff1493, #ff3db0);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 5px 20px rgba(255, 20, 147, 0.5);
+}
+
+.book-now-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(255, 20, 147, 0.8);
+}
+
+/* Detailed Description */
+.detailed-description {
+    margin: 50px 0;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #ffb0d1;
+}
+
+.detailed-description h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #ff1493;
+    text-shadow: 0 0 10px rgba(255, 20, 147, 0.6);
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    margin-top: 60px;
+}
+
+.testimonials-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.testimonial-card {
+    background: #1e1e1e;
+    border-radius: 15px;
+    padding: 25px 30px;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 4px 20px rgba(255, 20, 147, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 20, 147, 0.5);
+}
+
+.testimonial-feedback {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #ffb0d1;
+}
+
+.testimonial-name {
+    font-weight: 700;
+    margin-top: 12px;
+    font-size: 1rem;
+    color: #ff1493;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .header-section {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .left-column, .right-column {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-name {
+        font-size: 2.5rem;
+    }
+
+    .service-description {
+        font-size: 1.3rem;
+    }
+
+    .book-now-button {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .magna-wave-container {
+        padding: 30px 20px;
+    }
+
+    .service-name {
+        font-size: 2rem;
+    }
+
+    .service-description {
+        font-size: 1.1rem;
+    }
+
+    .book-now-button {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+    }
+}
